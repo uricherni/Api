@@ -134,7 +134,7 @@
           <Property Name="Password" Type="String" MaxLength="64" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Foto" Type="String" MaxLength="512" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Direccion" Type="String" MaxLength="128" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="Mascota" Relationship="Self.FK_Mascotas_Refugios" FromRole="Refugio" ToRole="Mascota" />
+          <NavigationProperty Name="Mascotas" Relationship="Self.FK_Mascotas_Refugios" FromRole="Refugio" ToRole="Mascota" />
         </EntityType>
         <EntityType Name="TipoUsuario">
           <Key>
@@ -168,7 +168,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Mascotas_Refugios">
-          <End Role="Refugio" Type="Self.Refugio" Multiplicity="1" />
+          <End Role="Refugio" Type="Self.Refugio" Multiplicity="1" >
+          </End>
           <End Role="Mascota" Type="Self.Mascota" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Refugio">
