@@ -22,17 +22,21 @@ namespace Api.Controllers
             return db.Mascota;
         }
 
+
+
+        [Route("api/Mascotas/GetMascotaByRefugio/{idRefugio}")]
         // GET: api/Mascotas/5
-        [ResponseType(typeof(Mascota))]
-        public IHttpActionResult GetMascota(int id)
+        [ResponseType(typeof(List<Mascota>))]
+        public IHttpActionResult GetMascotaByRefugio(int idRefugio)
         {
-            Mascota mascota = db.Mascota.Find(id);
-            if (mascota == null)
+            List<Mascota> mascotas = db.Mascota.
+                Where(m=>m.IdRefugio==idRefugio).ToList();
+            if (mascotas == null)
             {
                 return NotFound();
             }
 
-            return Ok(mascota);
+            return Ok(mascotas);
         }
 
         // PUT: api/Mascotas/5

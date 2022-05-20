@@ -17,7 +17,7 @@ namespace Api.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Refugio()
         {
-            this.Mascota = new HashSet<Mascota>();
+            this.Mascotas = new HashSet<Mascota>();
         }
     
         public int IdRefugio { get; set; }
@@ -29,6 +29,6 @@ namespace Api.Models
         public string Direccion { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Mascota> Mascota { get; set; }
+        public virtual ICollection<Mascota> Mascotas { get; set; }
     }
 }
